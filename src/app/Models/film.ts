@@ -1,4 +1,4 @@
-export class film{
+export class Film{
     id: number; // _id
     vote_averrage :number;
     title: string;

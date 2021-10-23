@@ -1,6 +1,6 @@
-import { FilmService } from './../services/film.service';
-import { Component, OnInit } from '@angular/core';
-import { film } from '../Models/film';
+
+import { Component, Input, OnInit } from '@angular/core';
+import { Film } from '../Models/film';
 
 @Component({
   selector: 'app-films',
@@ -9,19 +9,14 @@ import { film } from '../Models/film';
 })
 export class FilmsComponent implements OnInit {
 
-  
-  constructor(private filmService:FilmService) { 
-    this.filmService.getAllFilms(1).then((response:any)=>console.log(response));
+  @Input() films :any;
+
+  constructor() { 
+   
   }
 
 
-
-  films =[
-    
-
-  ]
-
-  showDetailsFilm (film:film){
+  showDetailsFilm (film:Film){
     alert("title :"+ film.title + " description : " + film.overview);
   }
 
