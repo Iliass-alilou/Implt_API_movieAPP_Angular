@@ -1,0 +1,11 @@
+<div class="container mt-5">
+
+    <div class="card-group card-columns">
+      <!-- (click)="showDetailsFilm(film)"  -->
+        <div id="card" class="card " *ngFor="let film of films ; let index=index;" (click)="showDetailsFilm(film)">
+          <app-film [filmData] = "films[index]" > </app-film>
+        </div>
+
+    </div>
+
+</div>
