@@ -10,6 +10,7 @@ import { Film } from '../Models/film';
 export class FilmsComponent implements OnInit {
 
   @Input() films :any;
+  @Input() number_pages: any;
 
   constructor() { 
    

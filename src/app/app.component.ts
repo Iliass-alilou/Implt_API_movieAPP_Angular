@@ -12,6 +12,7 @@ export class AppComponent {
 
   searchedText:String = "";
   films:Array<Film> = [];
+  number_pages = 0;
   filmService:FilmService;
 
   constructor(private service:FilmService){
@@ -19,6 +20,8 @@ export class AppComponent {
     this.filmService.getAllFilms(1)
     .then(response=>{
       this.films = response["results"];
+      this.number_pages=response["total_pages"]
+      
     })
   }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FilmService } from '../services/film.service';
 
 @Component({
   selector: 'app-pagination',
@@ -7,7 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
-  constructor() { }
+  page = 1;
+
+  @Input() number_pages: any;
+  @Input() films: any;
+
+  filmService:FilmService;
+
+  
+  constructor(private service:FilmService) {
+    this.filmService = service;
+   }
+
+   NextPage(){
+    this.filmService.getAllFilms(this.page)
+    .then(response=>{
+      this.films = response["results"]; 
+    })
+   }
 
   ngOnInit(): void {
   }

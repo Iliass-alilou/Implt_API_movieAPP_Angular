@@ -29,6 +29,4 @@ export class FilmService {
     return 'https://image.tmdb.org/t/p/w300' +name;
   }
 
-  
-
 }
