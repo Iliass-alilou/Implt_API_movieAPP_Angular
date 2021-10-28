@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { FilmComponent } from './film/film.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FilmService } from './services/film.service';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     FilmsComponent,
     NavBarComponent,
     FooterComponent,
-    FilmComponent
+    FilmComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,FilmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

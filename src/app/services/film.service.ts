@@ -21,7 +21,7 @@ export class FilmService {
   getFilms(text:String,page:number){
     const url = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.API_TOKEN +'&language=fr&query=' + text + "&page=" + page
     return this.http.get<Array<Film>>(url).toPromise()
-        .then((rsp)=>rsp)
+        .then((response:any)=>response)
         .catch((err)=>console.log(err));
   }
 

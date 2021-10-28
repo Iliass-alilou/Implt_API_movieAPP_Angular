@@ -17,14 +17,17 @@ export class AppComponent {
   constructor(private service:FilmService){
     this.filmService=service;
     this.filmService.getAllFilms(1)
-    .then(rsp=>{
-      this.films = rsp["results"];
+    .then(response=>{
+      this.films = response["results"];
     })
   }
 
-  // searchText(searchedText){
-  //   this.filmService.getFilms(searchedText,1).then(rsp=>{
-  //     this.films = rsp["results"];
-  //   })
-  // }
+  searchText(searchedText:String){
+   //alert("hi from search film");
+   this.filmService.getFilms(searchedText,1).then(response=>{
+     console.log(response["results"]);
+     this.films = response["results"];
+   })
+  
+  }
 }
