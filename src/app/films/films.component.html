@@ -1,8 +1,8 @@
 <div class="container mt-5 mb-5">
 
-    <div class="row row-cols-1 row-cols-md-5">
+    <div class="row  row-cols-3 row-cols-md-5 ">
       
-        <div id="card" class="card " *ngFor="let film of films ; let index=index;" (click)="showDetailsFilm(film)">
+        <div  id="card" class="card " *ngFor="let film of films ; let index=index;" (click)="showDetailsFilm(film)">
           <app-film [filmData] = "films[index]" > </app-film>
         </div>
 

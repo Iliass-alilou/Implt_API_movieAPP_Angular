@@ -1,3 +1,4 @@
+import { Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +12,10 @@ import { FilmComponent } from './film/film.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmService } from './services/film.service';
 import { PaginationComponent } from './pagination/pagination.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
+import { FavoriesComponent } from './favories/favories.component';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +24,9 @@ import { PaginationComponent } from './pagination/pagination.component';
     NavBarComponent,
     FooterComponent,
     FilmComponent,
-    PaginationComponent
+    PaginationComponent,
+    FilmDetailComponent,
+    FavoriesComponent
   ],
   imports: [
     BrowserModule,

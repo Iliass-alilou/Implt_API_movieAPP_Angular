@@ -21,7 +21,7 @@
             </ul>
 
             <div class="form-inline my-2 my-lg-0">
-                <input #searchedText class="form-control mr-sm-2" type="text" placeholder="Search">
+                <input  (ngModelChange)="setSearch(searchedText.value)" #searchedText class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button (click)="setSearch(searchedText.value)" class="btn btn-outline-success my-2 my-sm-0" >Search</button>
             </div>
             

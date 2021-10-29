@@ -22,7 +22,7 @@ export class PaginationComponent implements OnInit {
 
    NextPage(){
     this.filmService.getAllFilms(this.page)
-    .then(response=>{
+    this.filmService.filmsSubject.subscribe(response=>{
       this.films = response["results"]; 
     })
    }

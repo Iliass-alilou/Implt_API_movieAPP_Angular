@@ -17,5 +17,6 @@ export class NavBarComponent implements OnInit {
   setSearch(val: String){
     this.searchText.emit(val);
   }
+  
 
 }
