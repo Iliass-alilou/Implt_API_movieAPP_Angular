@@ -44,8 +44,9 @@ export class FilmService {
   //   this.http.get()
   // }
 
-  getDetailFilm(id:number){
+  getDetailFilm(id){
     const url = 'https://api.themoviedb.org/3/movie/' + id +'?api_key=' + this.API_TOKEN  + '&language=fr' 
+    return this.http.get(url);
   }
 
 }
