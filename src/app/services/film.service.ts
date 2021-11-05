@@ -23,30 +23,40 @@ export class FilmService {
     this.http.get<Array<Film>>(url).subscribe((films:any)=>{
       this.films=films;
       this.emitFilmsSubject();
+      
     });
   }
+
+  
   emitFilmsSubject(){
     this.filmsSubject.next(this.films/*.slice()*/)
   }
 
+
+  getFilmById(id) {
+    const url = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=' + this.API_TOKEN + '&language=fr';
+    return this.http.get<Film>(url)
+
+  }
+
+
   getFilms(text:String,page:number){
     const url = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.API_TOKEN +'&language=fr&query=' + text + "&page=" + page
     return this.http.get<Array<Film>>(url);
-    // .toPromise()
-    //     .then((response:any)=>response)
-    //     .catch((err)=>console.log(err));
+    
   }
+
 
   getImage(name:String){
     return 'https://image.tmdb.org/t/p/w300' +name;
   }
-  // getActivitesFromServer(){
-  //   this.http.get()
-  // }
+
 
   getDetailFilm(id){
     const url = 'https://api.themoviedb.org/3/movie/' + id +'?api_key=' + this.API_TOKEN  + '&language=fr' 
     return this.http.get(url);
   }
+
+
 
 }

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
@@ -32,7 +32,8 @@ import { FavoriesComponent } from './favories/favories.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [HttpClientModule,FilmService],
   bootstrap: [AppComponent]

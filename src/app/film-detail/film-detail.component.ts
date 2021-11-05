@@ -9,9 +9,15 @@ import { FilmService } from '../services/film.service';
 })
 export class FilmDetailComponent implements OnInit {
 
-  constructor(private rout: ActivatedRoute ,private service:FilmService) { }
+  constructor(private rout: ActivatedRoute , public service:FilmService) { }
 
   filmDetail : any;
+
+  getFilmImage(pathImage:String){
+    
+    this.service.getImage(pathImage)
+    console.log(this.service.getImage(pathImage))
+  }
   
   ngOnInit(): void {
 

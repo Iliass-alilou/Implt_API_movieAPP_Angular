@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,16 +8,28 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  @Output() searchText = new EventEmitter<String>();
+ 
   
-  constructor() { }
+  searchedText = ""
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((rsp) => {
+      var name = rsp["name"];
+      if (name !== undefined) this.searchedText = name;
+      else this.searchedText = ""
+    })
   }
 
-  setSearch(val: String){
-    this.searchText.emit(val);
+  setSearch(val: any): void {
+    this.searchedText = val
+    this.router.navigate([''], {
+      relativeTo: this.route,
+      queryParams: {
+        name: this.searchedText
+      },
+      replaceUrl:true,
+      queryParamsHandling: 'merge'
+    })
   }
-  
-
 }
